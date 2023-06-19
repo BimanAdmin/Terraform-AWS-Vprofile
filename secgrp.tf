@@ -56,18 +56,27 @@ resource "aws_security_group" "vprofile-prod-sg" {
   }
 }
 
+
 resource "aws_security_group" "vprofile-backend-sg" {
   name        = "vprofile-backend-sg"
   description = "security group for RDS, ActiveMQ and Elatsic cache"
   vpc_id      = module.vpc.vpc_id
  }
+
+  egress {
+    from_port   = 0
+    protocol    = "-1"
+    to_port     = 0
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
   ingress {
     from_port       = 22
     protocol        = "tcp"
     to_port         = 22
     security_groups = [aws_security_group.vprofile-prod-sg.id]
   }
-}
+
 
 resource "aws_security_group_rule" "sec_group_allow_itself" {
         type = "ingress"
