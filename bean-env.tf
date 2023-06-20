@@ -1,5 +1,5 @@
 resource "aws_elastic_beanstalk_application" "vprofile-prod" {
-  name        = "vprofile-prod"
+  name        = "vprofile-prod-bean"
   description = "create elastic beanstalk applications"
   tags = {
     "Name" = "vprofile-prod-v2"
