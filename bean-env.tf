@@ -1,7 +1,16 @@
+resource "aws_elastic_beanstalk_application" "vprofile-prod" {
+  name        = "vprofile-prod"
+  description = "create elastic beanstalk applications"
+  tags = {
+    "Name" = "vprofile-prod-v2"
+  }
+}
+
 resource "aws_elastic_beanstalk_environment" "vprofile-bean-prod" {
   name                = "vprofile-bean-prod"
   application         = aws_elastic_beanstalk_application.vprofile-prod.name
   solution_stack_name = "64bit Amazon Linux 2 v4.3.8 running Tomcat 8.5 Corretto 11"
+
   setting {
     name      = "VPCId"
     namespace = "aws:ec2:vpc"
