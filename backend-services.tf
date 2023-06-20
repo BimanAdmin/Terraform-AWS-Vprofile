@@ -1,4 +1,4 @@
-resource "aws_db_subnet_group" "vprofile_rds_subgroup" {
+resource "aws_db_subnet_group" "vprofile-rds-subgroup" {
   name       = "main"
   subnet_ids = [module.vpc.private_subnets[0], module.vpc.private_subnets[1], module.vpc.private_subnets[2]]
   tags = {
