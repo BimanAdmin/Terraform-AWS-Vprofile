@@ -1,6 +1,6 @@
 resource "aws_db_subnet_groupb" "vprofile_rds_subgroup" {
-  name ="main"
-  subnet_ids = [module.vpc.private_subnets[0], module.vpc.private_subnets[1], module.vpc.private_subnets[2] ]
+  name       = "main"
+  subnet_ids = [module.vpc.private_subnets[0], module.vpc.private_subnets[1], module.vpc.private_subnets[2]]
   tags = {
     name = "Subnet groups for RDS"
   }
@@ -8,7 +8,7 @@ resource "aws_db_subnet_groupb" "vprofile_rds_subgroup" {
 resource "aws_elasticache_subnet_group" "vprofile-ecache-subgrp" {
   name       = "vprofile-ecache-subgrp"
   subnet_ids = [module.vpc.private_subnets[0], module.vpc.private_subnets[1], module.vpc.private_subnets[2]]
-  tags       = {
+  tags = {
     name = "Subnet groups for ECACHE"
   }
 }
@@ -53,3 +53,4 @@ resource "aws_mq_broker" "vprofile-rmq" {
     username = var.rmquser
     password = var.rmqpass
   }
+}
