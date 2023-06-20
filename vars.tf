@@ -18,7 +18,7 @@ variable "PUB_KEY_PATH" {
   default = "vprofilekey.pub"
 }
 
-variable "USER" {
+variable "USERNAME" {
   default = "ubuntu"
 }
 
