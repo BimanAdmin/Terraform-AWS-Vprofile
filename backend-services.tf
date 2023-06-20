@@ -20,7 +20,7 @@ resource "aws_db_instance" "vprofile-rds" {
   instance_class         = "db.t2.micro"
   username               = var.dbuser
   password               = var.dbpass
-  parameter_group_name   = "default.mysql5.6"
+  parameter_group_name   = "default.mysql8.0"
   multi_az               = "false"
   publicly_accessible    = "false"
   skip_final_snapshot    = true
